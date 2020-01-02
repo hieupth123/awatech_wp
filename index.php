@@ -15,7 +15,15 @@
 get_header();
 ?>
 	<div id="primary" class="container content-area">
-		<?php echo do_shortcode("[breadcrumb]"); ?>
+		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+			<div class="container">
+
+				<?php if(function_exists('bcn_display'))
+				{
+					bcn_display();
+				}?>
+			</div>
+		</div>
 		<main id="main" class="site-main">
 			<div class="row"> 
 				<?php

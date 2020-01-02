@@ -9,8 +9,16 @@
 
 get_header();
 ?>
+	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+		<div class="container">
+
+			<?php if(function_exists('bcn_display'))
+			{
+				bcn_display();
+			}?>
+		</div>
+	</div>
 	<div id="primary" class="container content-area">
-		<?php echo do_shortcode("[breadcrumb]"); ?>
 		<main id="main" class="site-main">
 			<div class="row">
 				<div class="col-md-8">
