@@ -322,86 +322,68 @@ get_header();
 
         </div>
 
-        <!-- <div class="home-news box-home animated" data-animation="fadeInUp">
+        <div class="home-news box-home animated" data-animation="fadeInUp">
             <div class="container">
                 <h2 class="heading main-heading">
                 <span>
                     Tin Tức và Sự Kiện
                 </span>
-                <a class="view-all" href="/Tin-tuc.html">Xem tất cả</a>
+                <a class="view-all" href="<?php echo get_home_url();?>/blog">Xem tất cả</a>
             </h2>
                 <div class="content-background">
                     <div class="row">
 
-                        <div class="col-md-4 col-xs-12">
-                            <div class="box-news-home">
-                                <figure>
-                                    <a href="/Tin-tuc/ANHTHUYTECH-TAP-HUAN-CAC-HO-SO-MOI-TRUONG-THEO-THONG-TU-NGHI-DINH-MOI-NHAT-ad3270.html" title="[ANHTHUYTECH] TẬP HUẤN CÁC HỒ SƠ MÔI TRƯỜNG THEO THÔNG TƯ - NGHỊ ĐỊNH MỚI NHẤT">
-                                        <img alt="[ANHTHUYTECH] TẬP HUẤN CÁC HỒ SƠ MÔI TRƯỜNG THEO THÔNG TƯ - NGHỊ ĐỊNH MỚI NHẤT" src="/UserUpload/News/ANHTHUYTECH-TAP-HUAN-CAC-HO-SO-MOI-TRUONG-THEO-THONG-TU-NGHI-DINH-MOI-NHAT.jpg?width=370&amp;height=283&amp;mode=crop">
-                                    </a>
-                                </figure>
-                                <div class="meta">
-                                    <h3>
-                                            <a href="/Tin-tuc/ANHTHUYTECH-TAP-HUAN-CAC-HO-SO-MOI-TRUONG-THEO-THONG-TU-NGHI-DINH-MOI-NHAT-ad3270.html" title="[ANHTHUYTECH] TẬP HUẤN CÁC HỒ SƠ MÔI TRƯỜNG THEO THÔNG TƯ - NGHỊ ĐỊNH MỚI NHẤT">
-                                                [ANHTHUYTECH] TẬP HUẤN CÁC HỒ SƠ MÔI TRƯỜNG THEO THÔNG TƯ - NGHỊ ĐỊNH MỚI NHẤT
+                    <?php
+                        // WP_Query arguments
+                            $args = array(
+                                'post_type'              => array( 'post' ),
+                                'post_status'            => array( 'publish' ),
+                                'posts_per_page'         => '3',
+                            );
+
+                            // The Query
+                            $query = new WP_Query( $args );
+
+                            // The Loop
+                            if ( $query->have_posts() ) {
+                                while ( $query->have_posts() ) {
+                                    $query->the_post();
+                    ?>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="box-news-home">
+                                        <figure>
+                                            <a href="<?php the_permalink();?>" title="<?php the_title();?>">
+                                                <img alt="<?php the_title();?>" src="<?php the_post_thumbnail_url();?>">
                                             </a>
-                                        </h3>
-                                    <span class="date">26/10/2019 , 09:22</span>
-                                    <div class="description">
-                                        Để nâng cao kiến thức của anh chị em cán bộ công nhân viên, công ty đã tổ chức buổi tập huấn hồ sơ môi trường theo thông tư nghị định hiện hành mới nhất.
+                                        </figure>
+                                        <div class="meta">
+                                            <h3>
+                                                    <a href="<?php the_permalink();?>" title="<?php the_title();?>">
+                                                    <?php the_title();?>
+                                                    </a>
+                                                </h3>
+                                            <span class="date"><?php echo get_the_time ( 'Y/m/d h:i' ); ?></span>
+                                            <div class="description">
+                                            <?php the_excerpt();?>
+                                            </div>
+
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-xs-12">
-                            <div class="box-news-home">
-                                <figure>
-                                    <a href="/Tin-tuc/O-nhiem-khong-khi-Chu-de-Ngay-Moi-truong-The-gioi-nam-2019-ad3264.html" title="Ô nhiễm không khí: Chủ đề Ngày Môi trường Thế giới năm 2019">
-                                        <img alt="Ô nhiễm không khí: Chủ đề Ngày Môi trường Thế giới năm 2019" src="/UserUpload/News/O-nhiem-khong-khi-Chu-de-Ngay-Moi-truong-The-gioi-nam-2019.jpg?width=370&amp;height=283&amp;mode=crop">
-                                    </a>
-                                </figure>
-                                <div class="meta">
-                                    <h3>
-                                            <a href="/Tin-tuc/O-nhiem-khong-khi-Chu-de-Ngay-Moi-truong-The-gioi-nam-2019-ad3264.html" title="Ô nhiễm không khí: Chủ đề Ngày Môi trường Thế giới năm 2019">
-                                                Ô nhiễm không khí: Chủ đề Ngày Môi trường Thế giới năm 2019
-                                            </a>
-                                        </h3>
-                                    <span class="date">18/05/2019 , 09:34</span>
-                                    <div class="description">
-                                        Đại Hội đồng Liên Hiệp Quốc đã chọn ngày 5 tháng 6 hằng năm&nbsp;làm Ngày Môi Trường Thế Giới từ năm 1972&nbsp;và giao cho Chương trình Môi trường (UNEP)&nbsp;của Liên Hiệp Quốc&nbsp;có trụ sở tại Nairobi, Kenya&nbsp;tổ chức kỷ niệm sự kiện này.
-                                    </div>
+                    <?php
+                                }
+                            } else {
+                                // no posts found
+                            }
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-xs-12">
-                            <div class="box-news-home">
-                                <figure>
-                                    <a href="/Tin-tuc/Thuc-hien-3T-de-bao-ve-moi-truong-ad3258.html" title="Thực hiện 3T để bảo vệ môi trường">
-                                        <img alt="Thực hiện 3T để bảo vệ môi trường" src="/UserUpload/News/Thuc-hien-3T-de-bao-ve-moi-truong-3.jpg?width=370&amp;height=283&amp;mode=crop">
-                                    </a>
-                                </figure>
-                                <div class="meta">
-                                    <h3>
-                                            <a href="/Tin-tuc/Thuc-hien-3T-de-bao-ve-moi-truong-ad3258.html" title="Thực hiện 3T để bảo vệ môi trường">
-                                                Thực hiện 3T để bảo vệ môi trường
-                                            </a>
-                                        </h3>
-                                    <span class="date">14/05/2019 , 14:48</span>
-                                    <div class="description">
-                                        Bằng những việc làm đơn giản, bạn đã giúp môi trường sống trở nên xanh và sạch hơn. Trung bình mỗi ngày TP.HCM đang phải tiếp nhận khoảng 7.000 tấn rác thải, một con số khổng lồ. Dự báo lượng rác này sẽ tăng lên gần 10.000...
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
+                            // Restore original Post Data
+                            wp_reset_postdata();
+                    ?>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="box-partner animated " data-animation="fadeInUp">
+        <!-- <div class="box-partner animated " data-animation="fadeInUp">
             <div class="container">
                 <h2 class="heading main-heading center">Đối tác khách hàng</h2>
                 <div class="content-background">

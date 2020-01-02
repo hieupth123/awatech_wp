@@ -1159,3 +1159,166 @@ figure {
 .main-heading.center {
     text-align: center;
 }
+
+.home-news {
+    padding: 30px 0;
+}
+
+.main-heading span,
+.footer-heading span {
+    display: block;
+}
+
+.home-news .view-all {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #EEC900;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 15px;
+    text-decoration: none!important;
+}
+
+.box-news-home {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.box-news-home figure {
+    height: 283px!important;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.box-news-home figure a {
+    height: 100%;
+}
+
+.box-news-home figure img {
+    max-height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.box-news-home .meta h3 {
+    margin: 20px 0 15px;
+}
+
+.box-news-home .meta h3 a {
+    font-size: 17px;
+    color: #EEC900;
+    max-height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.box-news-home .meta .date {
+    font-size: 14px;
+    font-style: italic;
+    color: #999;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.date {
+    position: relative;
+}
+
+.box-news-home .meta .description {
+    color: #444;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.box-news-home:hover .meta h3 a {
+    color: #d40001;
+}
+
+.content-area {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+h1.title {
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #EEC900;
+    width: 100%;
+    display: block;
+}
+
+h1.title .date {
+    font-size: 11px;
+    font-weight: normal;
+    display: block;
+    color: #888;
+    margin-top: 10px;
+    font-family: arial;
+}
+
+.share-article {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.share-article {
+    overflow: hidden;
+}
+
+.share-article a {
+    border: 1px solid;
+    padding: 8px 12px;
+    margin-right: 5px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: block;
+    float: left;
+    margin-bottom: 7px;
+}
+
+a#facebook i {
+    color: #435f9f;
+}
+
+.share-article a i {
+    font-size: 15px;
+}
+
+.share-article a span {
+    display: none;
+}
+
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: block;
+}
+
+.description.short,
+.description.full {
+    font-size: 15px;
+    line-height: 1.72222;
+}
+
+#description-type,
+.description.full {
+    font-size: 14px;
+    color: #000;
+}
