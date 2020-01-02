@@ -279,6 +279,7 @@ ol {
     transition: all 0.3s ease-in-out;
     box-shadow: 0px 5px 14.25px 0.75px rgba(0, 0, 0, 0.05);
     white-space: nowrap;
+    z-index: 2;
 }
 
 #primary-menu>li:hover>.sub-menu {
@@ -617,8 +618,12 @@ span.footer-address {
     margin-bottom: 40px;
 }
 
+.carousel-indicators {
+    z-index: 1;
+}
+
 .carousel-indicators li {
-    background-color: #83db00;
+    background-color: #EEC900;
 }
 
 #columns {
@@ -682,7 +687,8 @@ span.footer-address {
 }
 
 .aboutus-home .view-detail a {
-    color: #0092d7;
+    color: #EEC900;
+    text-decoration: none;
 }
 
 .box-project-home {
@@ -746,6 +752,12 @@ span.footer-address {
 .box-project .meta h3 {
     text-align: center;
     font-size: 18px;
+    margin-top: 10px;
+}
+
+.box-project .meta h3 a {
+    color: #000000;
+    text-decoration: none;
 }
 
 .box-project:hover figure a:before {
@@ -1221,6 +1233,7 @@ figure {
     text-overflow: ellipsis;
     white-space: nowrap;
     display: block;
+    text-decoration: none;
 }
 
 .box-news-home .meta .date {
@@ -1321,4 +1334,53 @@ a#facebook i {
 .description.full {
     font-size: 14px;
     color: #000;
+}
+
+.left-wc,
+.right-wc {
+    margin-bottom: 20px;
+}
+
+h2.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #172647;
+    text-transform: capitalize;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+h2.title:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background: #EEC900;
+    left: 0;
+    bottom: 0;
+}
+
+.box-block,
+.box-block h3,
+.box-block .description {
+    overflow: hidden;
+}
+
+.breadcrumbs {
+    position: relative;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+.breadcrumbs a {
+    color: #000000;
+    text-decoration: none;
 }
