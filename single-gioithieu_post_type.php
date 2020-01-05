@@ -10,7 +10,7 @@
 get_header();
 $currentId = get_the_ID();
 ?>
-    <div class="category-type" style="background-image:url(http://anhthuytech.vn/UserUpload/ArticleType/2889cfc8-1c41-428a-9b37-bd2a87f060b4.jpg)">
+    <div class="category-type" style="background-image:url(<?php echo get_template_directory_uri();?>/image/panel-title.jpg)">
         <div class="container">
             
             <div class="wc">
@@ -26,6 +26,8 @@ $currentId = get_the_ID();
                                 'post_type'              => array( 'gioithieu_post_type' ),
                                 'post_status'            => array( 'publish' ),
                                 'posts_per_page'         => '3',
+                                'orderby'                => 'date',
+                                'order'                  => 'ASC',        
                             );
 
                             // The Query
@@ -69,7 +71,7 @@ $currentId = get_the_ID();
 	<div id="primary" class="container content-area">
 		<main id="main" class="site-main">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<?php
 					while ( have_posts() ) :
 						the_post();
@@ -78,9 +80,6 @@ $currentId = get_the_ID();
 
 					endwhile; // End of the loop.
 					?>
-				</div>
-				<div class="col-md-4">
-					<?php get_sidebar();?>
 				</div>
 			</div>
 		

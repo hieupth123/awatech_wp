@@ -74,7 +74,7 @@ function duan_post_type() {
 		'description'           => __( 'Post Type Description', 'bbase-code' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array( 'tax_duan' ),
+		'taxonomies'            => array(),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -95,12 +95,12 @@ add_action( 'init', 'duan_post_type', 0 );
 
 
 // Register Custom Taxonomy
-function duan_taxonomy_post_type() {
+function duan_taxonomy() {
 
 	$labels = array(
-		'name'                       => _x( 'Danh mục', 'Taxonomy General Name', 'bbase-code' ),
-		'singular_name'              => _x( 'Danh mục', 'Taxonomy Singular Name', 'bbase-code' ),
-		'menu_name'                  => __( 'Danh mục', 'bbase-code' ),
+		'name'                       => _x( 'Dự án', 'Taxonomy General Name', 'bbase-code' ),
+		'singular_name'              => _x( 'Dự án', 'Taxonomy Singular Name', 'bbase-code' ),
+		'menu_name'                  => __( 'Taxonomy', 'text_domain' ),
 		'all_items'                  => __( 'All Items', 'bbase-code' ),
 		'parent_item'                => __( 'Parent Item', 'bbase-code' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'bbase-code' ),
@@ -128,10 +128,10 @@ function duan_taxonomy_post_type() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'tax_duan', array( 'duan' ), $args );
+	register_taxonomy( 'taxonomy_duan', array( 'duan' ), $args );
 
 }
-add_action( 'init', 'duan_taxonomy_post_type', 0 );
+add_action( 'init', 'duan_taxonomy', 0 );
 
 
 // Register Custom Post Type
@@ -171,7 +171,7 @@ function dichvu_post_type() {
 		'description'           => __( 'Post Type Description', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array( ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -217,7 +217,7 @@ function dichvu_taxonomy() {
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
@@ -231,7 +231,7 @@ add_action( 'init', 'dichvu_taxonomy', 0 );
 
 
 // Register Custom Post Type
-function product_post_type() {
+function sanpham_post_type() {
 
 	$labels = array(
 		'name'                  => _x( 'Sản phẩm', 'Post Type General Name', 'text_domain' ),
@@ -267,7 +267,7 @@ function product_post_type() {
 		'description'           => __( 'Post Type Description', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array( ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -284,10 +284,10 @@ function product_post_type() {
 	register_post_type( 'sanpham', $args );
 
 }
-add_action( 'init', 'product_post_type', 0 );
+add_action( 'init', 'sanpham_post_type', 0 );
 
 // Register Custom Taxonomy
-function product_taxonomy() {
+function sanpham_taxonomy() {
 
 	$labels = array(
 		'name'                       => _x( 'Sản phẩm', 'Taxonomy General Name', 'text_domain' ),
@@ -313,17 +313,17 @@ function product_taxonomy() {
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'taxonomy_sanpham', array( 'post' ), $args );
+	register_taxonomy( 'taxonomy_sanpham', array( 'sanpham' ), $args );
 
 }
-add_action( 'init', 'product_taxonomy', 0 );
+add_action( 'init', 'sanpham_taxonomy', 0 );
 
 
 // Register Custom Post Type

@@ -1,4 +1,4 @@
-<div class="category-type" style="background-image:url(http://anhthuytech.vn/UserUpload/ArticleType/2889cfc8-1c41-428a-9b37-bd2a87f060b4.jpg)">
+<div class="category-type" style="background-image:url(../image/panel-title.jpg)">
     <div class="container">
         
         <div class="wc">
