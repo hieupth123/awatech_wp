@@ -122,5 +122,4 @@
 			?>
 		</div>
 	</nav><!-- #site-navigation -->
-	<?php get_template_part( 'page-title'); ?>
 	<div id="content" class="site-content">
