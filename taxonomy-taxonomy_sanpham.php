@@ -9,6 +9,11 @@
 
 get_header();
 $currentTaxonomyId = get_queried_object()->term_id;
+$currentChildId = get_queried_object()->term_id;
+// echo get_term_parents_list( $term_id, 'taxonomy_sanpham' );
+if (get_queried_object()->parent > 0) {
+    $currentTaxonomyId = get_queried_object()->parent;
+}
 ?>
     <div class="category-type" style="background-image:url(<?php echo get_template_directory_uri();?>/image/panel-title.jpg)">
         <div class="container">
@@ -76,9 +81,8 @@ $currentTaxonomyId = get_queried_object()->term_id;
                         foreach ( $childTerms as $childTerm ) {
                             $childTerm_get_link = get_term_link($childTerm, 'taxonomy_sanpham');
                             $term_get = get_term_by( 'id', $childTerm, 'taxonomy_sanpham');
-                            $childTaxId = $childTerm->term_id;
                         ?>
-                            <li class = "<?php echo $childTaxId == $currentTaxonomyId ? "active" : ""; ?>">
+                            <li class = "<?php echo $childTerm == $currentChildId ? "active" : ""; ?>">
                                 <a href="<?php echo esc_url($childTerm_get_link);?>" title="<?php echo esc_html($term_get->name); ?>"><?php echo esc_html($term_get->name);?></a>
                             </li>
                         <?php
