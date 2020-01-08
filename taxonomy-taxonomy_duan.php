@@ -9,6 +9,11 @@
 
 get_header();
 $currentTaxonomyId = get_queried_object()->term_id;
+$currentChildId = get_queried_object()->term_id;
+// echo get_term_parents_list( $term_id, 'taxonomy_sanpham' );
+if (get_queried_object()->parent > 0) {
+    $currentTaxonomyId = get_queried_object()->parent;
+}
 ?>
     <div class="category-type" style="background-image:url(<?php echo get_template_directory_uri();?>/image/panel-title.jpg)">
         <div class="container">
@@ -29,7 +34,10 @@ $currentTaxonomyId = get_queried_object()->term_id;
                                 'orderby'                => 'date',
                                 'order'                  => 'ASC',
                             );
-                            $terms = get_terms( 'taxonomy_duan' );
+                            $terms = get_terms( array( 
+                                'taxonomy' => 'taxonomy_duan',
+                                'parent'   => 0
+                            ) );
                             if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
                                 foreach ( $terms as $term ) {
                                     $term_get_link = get_term_link($term, $tax_name);
@@ -65,6 +73,25 @@ $currentTaxonomyId = get_queried_object()->term_id;
             </div>
         </div>
     </div>
+    <div class="category-sub">
+        <ul class="list-sub-item">
+                <?php
+                    $childTerms = get_term_children($currentTaxonomyId,'taxonomy_duan');
+                    if ( ! empty( $childTerms ) && ! is_wp_error( $childTerms ) ){
+                        foreach ( $childTerms as $childTerm ) {
+                            $childTerm_get_link = get_term_link($childTerm, 'taxonomy_duan');
+                            $term_get = get_term_by( 'id', $childTerm, 'taxonomy_duan');
+                        ?>
+                            <li class = "<?php echo $childTerm == $currentChildId ? "active" : ""; ?>">
+                                <a href="<?php echo esc_url($childTerm_get_link);?>" title="<?php echo esc_html($term_get->name); ?>"><?php echo esc_html($term_get->name);?></a>
+                            </li>
+                        <?php
+                        }
+                    }
+                ?>
+
+        </ul>
+    </div>
     <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
         <div class="container">
 
@@ -78,6 +105,7 @@ $currentTaxonomyId = get_queried_object()->term_id;
         <main id="main" class="site-main">
             <section id="columns" class="columns-home container">
                 <div class="row columns-home-row">
+
                     <?php if ( have_posts() ) : ?>
 
                     
@@ -104,7 +132,6 @@ $currentTaxonomyId = get_queried_object()->term_id;
 
                         endif;
                     ?>
-
                 </div>
             </section>
 		</main><!-- #main -->
