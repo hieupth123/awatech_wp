@@ -40,6 +40,15 @@
             "show": true // ensure the modal is shown immediately
         });
     });
-
+    $(".price-all a").on("click", function(e) {
+        e.preventDefault();
+        let title = $(this).attr('title');
+        $("#myModalContact").find('#title-request').val(title.trim()).prop('disabled', true);
+        $("#myModalContact").modal({ // wire up the actual modal functionality and show the dialog
+            "backdrop": "static",
+            "keyboard": true,
+            "show": true // ensure the modal is shown immediately
+        });
+    });
 
 })(jQuery);;

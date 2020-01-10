@@ -48,10 +48,9 @@
                     <div class="col-sm-6 col-xs-12 article-detail">
                         <h1 class="title product-detail" itemprop="name">
                             <span>
-                                Hóa chất Xử lý Nước Cấp 01
+                                <?php the_title();?>
                             </span>
                         </h1>
-                        <div class="row">
                         <div class="share-article btn-group col-xs-12">
                             <a href="#" class="btn" id="facebook">
                                 <i class="fab fa-facebook-f"></i> <span>Facebook</span>
@@ -66,33 +65,60 @@
                                 <i class="fab fa-linkedin-in"></i> <span>linkedin</span>
                             </a>
                         </div>
-                        </div>
                         <div class="property">
                             <span class="category">
+                            <?php
+                                $terms =  get_the_terms( $post->ID, 'taxonomy_sanpham');
+                                $term = array_pop($terms);
+                                $currentTaxonomyId  = $term;
+                                $currentParentTaxonomyId = $term->parent;
+                                $nameCategory = $currentTaxonomyId->name;
+                                $term_get_link = get_term_link($term, 'taxonomy_sanpham');
+                            ?>
                             <strong class="lbl"><i class="fa fa-angle-down"></i> Danh mục: </strong>
-                            <a href="/Hoa-Chat-Thiet-bi/HOA-CHAT-XU-LY-NUOC-CAP-ac1022.html" title="HÓA CHẤT XỬ LÝ NƯỚC CẤP">
-                                <span>HÓA CHẤT XỬ LÝ NƯỚC CẤP</span>
+                            <a href="<?php echo $term_get_link;?>" title="<?php echo $nameCategory;?>">
+                                <span><?php echo $nameCategory;?></span>
                             </a>
                             </span>
                             <div class="price-all">
-
+                                <span>Giá:</span>
+                                <?php
+                                    if (!empty(get_field('price'))) {
+                                        the_field('price');
+                                    } else {
+                                        echo '<a title= "'.get_the_title().'" href="javascript:void(0);" class="action">Liên hệ</a>';
+                                    }
+                                ?>
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="action">
-                            <a href="/Home/Contact/3079" class="">Liên hệ</a>
-                        </div>
 
                         <div class="description short" itemprop="description">
-                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Hiệu:</strong></span></span>
+                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Hiệu:</strong></span><?php the_field('label')?></span>
                             </p>
 
-                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Model:</strong></span></span>
+                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Model:</strong></span><?php the_field('product_code')?></span>
                             </p>
 
-                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Xuất xứ:</strong></span></span>
+                            <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong>Xuất xứ:</strong></span><?php the_field('name')?></span>
                             </p>
+                            
+                            <?php
 
+                                // check if the repeater field has rows of data
+                                if( have_rows('specification') ):
+
+                                // loop through the rows of data
+                                while ( have_rows('specification') ) : the_row();
+                                ?>
+                                    <p style="text-align: justify;"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif"><strong><?php the_sub_field('title_specification');?>: </strong></span><?php the_sub_field('description_specification');?></span>
+                                    </p>
+                                <?php
+                                endwhile;
+                                else :
+                                endif;
+
+                                ?>
                         </div>
 
                     </div>
@@ -101,32 +127,69 @@
                 <div class="clearfix"></div>
                 <div class="col-xs-12 description full" itemprop="description">
                     <p style="text-align: justify;"><strong><span style="color:#0000FF"><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif">Thông tin chi tiết:</span></span></span></strong></p>
-
+                    <?php the_content()?>
                 </div>
 
             </div>
             <h2 class="title">Sản phẩm khác</h2>
             <div class="content-background">
+                <?php
+                    // WP_Query arguments
+                    $args = array(
+                        'post_type'              => array( 'sanpham' ),
+                        'post_status'            => array( 'publish' ),
+                        'posts_per_page'         => '4',
+                        'orderby'                => 'date',
+                        'order'                  => 'ASC',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'taxonomy_sanpham',
+                                'field' => 'id',
+                                'terms' => $currentTaxonomyId
+                            )
+                            ),
+                        'post__not_in'           => array(get_the_ID())
+                    );
 
-                <div class="col-md-3 col-xs-6">
-                    <div class="row">
-                        <div class=" box-block box-product  ">
-                            <figure>
-                                <a href="/Hoa-Chat-Thiet-bi/PHEN-KEP-AMONI-NH4-AL-SO4-2-ad1010.html" title="PHÈN KÉP AMONI - (NH4)AL(SO4)2">
-                                    <img alt="PHÈN KÉP AMONI - (NH4)AL(SO4)2" class="lazy" data-src="/UserUpload/Product/PHEN-KEP-AMONI-NH4-AL-SO4-2.png?width=255&amp;height=208&amp;mode=pad" src="/UserUpload/Product/PHEN-KEP-AMONI-NH4-AL-SO4-2.png?width=255&amp;height=208&amp;mode=pad" style="display: block;">
-                                </a>
+                    // The Query
+                    $query = new WP_Query( $args );
 
-                            </figure>
-                            <div class="meta">
-                                <h3>
-                                <a href="/Hoa-Chat-Thiet-bi/PHEN-KEP-AMONI-NH4-AL-SO4-2-ad1010.html" title="PHÈN KÉP AMONI - (NH4)AL(SO4)2">PHÈN KÉP AMONI - (NH4)AL(SO4)2</a>
-                            </h3>
+                    // The Loop
+                    if ( $query->have_posts() ) {
+                        while ( $query->have_posts() ) {
+                                $query->the_post();
+                                $postId = get_the_ID();
+                ?>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="row">
+                            <div class=" box-block box-product  ">
+                                <figure>
+                                    <a href="<?php the_permalink();?>" title="<?php the_title();?>">
+                                        <img alt="<?php the_title();?>" class="lazy" src="<?php the_post_thumbnail_url();?>">
+                                    </a>
 
+                                </figure>
+                                <div class="meta">
+                                    <h3>
+                                    <a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title();?></a>
+                                </h3>
+
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
-                </div>
+                <?php
+                        }
+                    } else {
+                        // no posts found
+                    }
+
+                    // Restore original Post Data
+                    wp_reset_postdata();
+                ?>
+                
 
             </div>
 

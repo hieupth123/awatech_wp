@@ -44,7 +44,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="/Home/Contact">Liên hệ</a>
+							<a href="<?php echo esc_url( home_url( '/lien-he' ));?>">Liên hệ</a>
 						</li>
 						<li>
 							<span>HOTLINE: 0385195235</span>

@@ -10,10 +10,15 @@
 get_header();
 $currentTaxonomyId = get_queried_object()->term_id;
 $terms =  get_the_terms( $post->ID, 'taxonomy_sanpham');
+// var_dump($terms);
 if (! is_wp_error( $terms )) {
     $term = array_pop($terms);
     $currentTaxonomyId  = $term;
-    $currentParentTaxonomyId = $term->parent;
+    if (!empty($term->parent)) {
+        $currentParentTaxonomyId = $term->parent;
+    } else {
+        $currentParentTaxonomyId = $term->term_id;
+    }
 }
 ?>
 	<div class="category-type" style="background-image:url(<?php echo get_template_directory_uri();?>/image/panel-title.jpg)">

@@ -123,6 +123,19 @@
 			</div>
 		</div>
 	</div>
+	<div id="myModalContact" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- dialog body -->
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<?php
+						echo do_shortcode('[contact-form-7 id="113" title="Liên hệ"]');
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
