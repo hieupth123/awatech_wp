@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-md-3 col-xs-12 animated fadeInLeft animation-visible" data-animation="fadeInLeft">
 					<div class="box-footer footer-address">
-						<h2 class="heading footer-heading">Văn Phòng Công Ty Cổ Phần Công Nghệ Thiết Bị Dịch Vụ và Môi Trường ÁNH THỦY</h2>
+						<h2 class="heading footer-heading">Văn Phòng Công Ty Cổ Phần Công Nghệ Thiết Bị Dịch Vụ và Môi Trường AWATECH</h2>
 
 						<?php if ( is_active_sidebar( 'footer-1' ) ) {?>
 			
@@ -76,7 +76,7 @@
 									<img alt="image" src="<?php echo get_template_directory_uri();?>/image/logo.png?width=150&amp;height=118&amp;mode=crop">
 								</a>
 								<div class="copy-right">
-									<a href="/">anhthuytech.vn</a>
+									<a href="/">moitruongawatech.com</a>
 									<p>© Copyright 2016 </p>
 								</div>
 							</div>

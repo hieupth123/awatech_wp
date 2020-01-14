@@ -169,6 +169,94 @@ ol {
     position: relative;
 }
 
+.navbar-mobile {
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 999;
+    background-color: transparent;
+    border: none;
+    display: none;
+    position: absolute;
+    right: 45px;
+    top: 25px;
+}
+
+.navbar-mobile span {
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 16px;
+    background: #EEC900;
+    border-radius: 30px;
+    opacity: 1;
+    left: 12px;
+}
+
+.navbar-mail {
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 999;
+    background-color: transparent;
+    border: none;
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    color: #EEC900;
+}
+
+.navbar-mail:focus,
+.navbar-mobile:focus {
+    outline: none;
+}
+
+.navbar-mobile span:nth-child(1) {
+    top: 14px;
+}
+
+.navbar-mobile span:nth-child(2),
+.navbar-mobile span:nth-child(3) {
+    top: 19px;
+}
+
+.navbar-mobile span:nth-child(4) {
+    top: 24px;
+}
+
 
 /* .slogan {
     float: left;
@@ -1699,4 +1787,54 @@ blockquote {
 
 #myCarousel .carousel-indicators>li.active img {
     opacity: 0.7;
+}
+
+.contact-content {
+    max-width: 650px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.box-companny {
+    padding: 7px 0;
+    font-size: 13px;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.box-companny h1.title {
+    font-size: 25px;
+}
+
+.box-companny .content {
+    color: #000;
+    line-height: 24px;
+}
+
+.box-companny .content .label {
+    color: #000;
+    font-size: 15px;
+    padding: 0 0;
+    display: block;
+    text-align: left;
+    font-weight: normal;
+    margin-bottom: 4px;
+    white-space: normal;
+    line-height: 24px;
+    position: relative;
+    padding-left: 40px;
+    padding-top: 4px;
+    min-height: 28px;
+}
+
+.box-companny .content .label i {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
 }

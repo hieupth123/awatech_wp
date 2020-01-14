@@ -102,10 +102,14 @@
 				</div>
 					
 				<div class="banner" dir="rtl">
-					<a href="/" class="slogan animation-visible" data-animation="">
-						<marquee><span class ="marquee-font">THEO ĐUỔI SỰ TINH TÚY- THÀNH CÔNG THEO ĐUỔI BẠN</span></marquee>
-					</a>
+					<marquee><span class ="marquee-font">THEO ĐUỔI SỰ TINH TÚY- THÀNH CÔNG THEO ĐUỔI BẠN</span></marquee>
 				</div>
+				<button class='navbar-mobile'>
+						<span></span> <span></span> <span></span> <span></span>
+					</button>
+				<button class='navbar-mail'>
+					<i class="fas fa-envelope-open-text"></i>
+				</button>	
 			</div>
 
 		</div>
