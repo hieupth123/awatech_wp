@@ -5,6 +5,18 @@
 }
 
 @media (max-width: 991px) {
+    .container {
+        max-width: 100%;
+    }
+    .box-quotation-home .content-background {
+        padding: 50px 20px;
+    }
+    .icon-home {
+        display: none;
+    }
+    .wrapper {
+        display: block;
+    }
     #masthead {
         border-bottom: 1px solid #f1f1f1;
     }
@@ -28,9 +40,6 @@
     #site-branding {
         margin-top: 0px;
     }
-    .container {
-        max-width: 100%;
-    }
     #site-navigation,
     #masthead .header-title,
     .pull-right {
@@ -48,8 +57,45 @@
         max-width: 100%;
         vertical-align: middle;
     }
-    #content,
-    footer {
-        display: none;
+}
+
+@media (max-width: 768px) {
+    .box-quotation-home .content-background {
+        padding: 50px 70px;
+    }
+    .list-quotation li {
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .category-sub .list-sub-item li a:before {
+        content: none;
+    }
+}
+
+@media (max-width: 767px) {
+    #colophon .animated {
+        margin-bottom: 20px;
+    }
+    .category-type .wc .wc-inner .list-item li {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .category-type .wc .wc-inner .list-item li:not(:first-child):before {
+        content: none;
+    }
+    .category-sub .list-sub-item li a {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .box-quotation-home .content-background {
+        padding: 50px 30px;
+    }
+    .list-quotation li {
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
     }
 }

@@ -9,41 +9,39 @@
 get_header();
 ?>
 <div class="container" id="slide-header">
-    <div class="row">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <?php 
+            $images = get_field('slide_banner');
+            $size = 'full'; // (thumbnail, medium, large, full or custom size)
+        ?>
+        <ol class="carousel-indicators">
+        <?php foreach( $images as $key=>$image_id ): ?>
+            <li data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
+        <?php endforeach; ?>
+        <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li> -->
+        </ol>
+        <div class="carousel-inner">
+            <!-- Get image from gallery -->
             <?php 
-                $images = get_field('slide_banner');
-                $size = 'full'; // (thumbnail, medium, large, full or custom size)
-            ?>
-            <ol class="carousel-indicators">
-            <?php foreach( $images as $key=>$image_id ): ?>
-                <li data-target="#myCarousel" data-slide-to="<?php echo $key; ?>"></li>
-            <?php endforeach; ?>
-            <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li> -->
-            </ol>
-            <div class="carousel-inner">
-                <!-- Get image from gallery -->
-                <?php 
-                    if( $images ): ?>
-                        <?php foreach( $images as $image_id ): ?>
-                            <div class="carousel-item">
-                                <img src="<?php echo esc_url($image_id['url']); ?>" alt="<?php echo esc_attr($image_id['alt']); ?>" />
-                            </div>
-                        <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                if( $images ): ?>
+                    <?php foreach( $images as $image_id ): ?>
+                        <div class="carousel-item">
+                            <img src="<?php echo esc_url($image_id['url']); ?>" alt="<?php echo esc_attr($image_id['alt']); ?>" />
+                        </div>
+                    <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>
 
@@ -54,7 +52,7 @@ get_header();
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <h2 class="main main-heading">Giới Thiệu</h2>
-                        <h4 class="title">Về Môi Trường Ánh Thủy</h4>
+                        <h4 class="title">Về Môi Trường AWATECH</h4>
                         <div class="short-desc">
                             <p style="text-align:justify"><span style="font-size:18px"><span style="font-family:times new roman,times,serif"><em>Kính gửi Quý Cơ quan, Doanh nghiệp!</em></span></span>
                             </p>

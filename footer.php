@@ -84,23 +84,11 @@
 								<div id="online" class="hidden-sm hidden-xs">
 									<div class="item">
 										<span class="lbl">Đang trực tuyến</span>
-										<span class="ctn" id="ol">1</span>
+										<span class="ctn" id="ol"><?php echo wp_statistics_visitor('today'); ?></span>
 									</div>
 									<div class="item total">
 										<span class="lbl">Tổng truy cập</span>
-										<span class="ctn" id="tl">12022</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div id="online" class="hidden-sm hidden-xs">
-									<div class="item">
-										<span class="lbl">Đang trực tuyến</span>
-										<span class="ctn" id="ol">1</span>
-									</div>
-									<div class="item total">
-										<span class="lbl">Tổng truy cập</span>
-										<span class="ctn" id="tl">12022</span>
+										<span class="ctn" id="tl"><?php echo wp_statistics_visitor('year'); ?></span>
 									</div>
 								</div>
 							</div>

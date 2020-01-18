@@ -104,17 +104,16 @@
 				<div class="banner" dir="rtl">
 					<marquee><span class ="marquee-font">THEO ĐUỔI SỰ TINH TÚY- THÀNH CÔNG THEO ĐUỔI BẠN</span></marquee>
 				</div>
-				<button class='navbar-mobile'>
+				<button class='navbar-mobile' id='sidebarCollapse'>
 						<span></span> <span></span> <span></span> <span></span>
 					</button>
-				<button class='navbar-mail'>
+				<!-- <button class='navbar-mail'>
 					<i class="fas fa-envelope-open-text"></i>
-				</button>	
+				</button>	 -->
 			</div>
-
+							
 		</div>
-	</header><!-- #masthead -->
-	<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation">
 		<div class="container"> 
 			<?php
 			wp_nav_menu( array(
@@ -126,4 +125,29 @@
 			?>
 		</div>
 	</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+	<div class="fix-height"></div>
+
+
+	<div class="wrapper">
+		<!-- Sidebar -->
+		<nav id="sidebar" class="active">
+			<div class="sidebar-header">
+				<h3>Menu</h3>
+			</div>
+			<div>
+
+			</div>
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => '',
+				'menu_id'        => 'list-unstyled',
+				'container'		 => 'ul',
+				'menu_class' 	 => 'components',
+				'depth'          => 3,
+			) );
+			?>
+		</nav>
+
+	</div>
 	<div id="content" class="site-content">

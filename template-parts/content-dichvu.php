@@ -11,7 +11,6 @@
 
 
 <div class="col-md-4 col-xs-6">
-    <div class="row">
         <div class="box-treatment">
             <figure>
                 <a href="<?php the_permalink();?>" title="<?php the_title();?>">
@@ -23,6 +22,4 @@
                 <h3><a href="<?php the_permalink();?>" title="<?php the_title();?>"><span><?php the_title();?></span></a></h3>
             </div>
         </div>
-    </div>
-
 </div>
